@@ -1,0 +1,23 @@
+services:
+  traefik:
+    image: traefik:v3.6
+    container_name: traefik
+    labels:
+      - "homelab.tier=infra"
+    restart: unless-stopped
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=traefik-net"
+      - "--entrypoints.web.address=:8000"
+      - "--entrypoints.web.forwardedHeaders.trustedIPs=192.168.64.1/32"
+    ports:
+      - "8000:8000"
+    networks:
+      - traefik-net
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+networks:
+  traefik-net:
+    external: true
