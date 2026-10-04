@@ -35,9 +35,11 @@ For a service that must stay private (reached over the VPN only), use the same l
 
 1. Pick an internal hostname, e.g. `myservice.homelab.internal`, and use it in the `Host(...)` rule.
 2. On each client machine, add it to the `hosts` file, pointing to the homelab's VPN address:
-   ```
+
+   ```text
    <vpn-address-of-the-homelab>  myservice.homelab.internal
    ```
+
 3. Browse to `http://myservice.homelab.internal:8000/`.
 
 If the container must reach services on the host (database, Traefik itself…) from a custom Docker network, the host firewall needs a rule for that network's subnet.

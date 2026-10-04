@@ -35,9 +35,11 @@ Pour un service qui doit rester privé (accessible via le VPN uniquement), utili
 
 1. Choisis un nom d'hôte interne, ex. `monservice.homelab.internal`, et utilise-le dans la règle `Host(...)`.
 2. Sur chaque poste client, ajoute-le au fichier `hosts`, pointant vers l'adresse VPN du homelab :
-   ```
+
+   ```text
    <adresse-vpn-du-homelab>  monservice.homelab.internal
    ```
+
 3. Ouvre `http://monservice.homelab.internal:8000/`.
 
 Si le conteneur doit joindre des services de l'hôte (base de données, Traefik lui-même…) depuis un réseau Docker personnalisé, le pare-feu de l'hôte nécessite une règle pour le sous-réseau de ce réseau.
