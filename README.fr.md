@@ -22,3 +22,13 @@ docker compose up -d
 
 - Le socket Docker est monté en lecture seule (`:ro`). Cela limite les écritures mais expose quand même les métadonnées des conteneurs ; un socket proxy serait plus strict.
 - Adapter `trustedIPs` à l'adresse de ton tunnel/passerelle.
+
+## Documentation
+
+- [Ajouter un service](docs/adding-a-service.fr.md)
+- [Cloudflare Tunnel](docs/cloudflare-tunnel.fr.md)
+- [Dépannage](docs/troubleshooting.fr.md)
+
+## Licence
+
+MIT — voir [LICENSE](LICENSE).
