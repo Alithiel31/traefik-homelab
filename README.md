@@ -23,6 +23,12 @@ docker compose up -d
 - The Docker socket is mounted read-only (`:ro`). This limits writes but still exposes container metadata; a socket proxy would be stricter.
 - Adjust `trustedIPs` to your own tunnel/gateway address.
 
+## Documentation
+
+- [Adding a service](docs/adding-a-service.md)
+- [Cloudflare Tunnel](docs/cloudflare-tunnel.md)
+- [Troubleshooting](docs/troubleshooting.md)
+
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE).
