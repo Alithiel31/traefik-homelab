@@ -22,3 +22,7 @@ docker compose up -d
 
 - Le socket Docker est monté en lecture seule (`:ro`). Cela limite les écritures mais expose quand même les métadonnées des conteneurs ; un socket proxy serait plus strict.
 - Adapter `trustedIPs` à l'adresse de ton tunnel/passerelle.
+
+## Licence
+
+MIT
