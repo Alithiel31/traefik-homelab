@@ -5,10 +5,12 @@
 | Symptom | Likely cause | Fix |
 | ------- | ------------ | --- |
 | `404 page not found` | No router matches the request | Check the `Host(...)` rule against the requested hostname, and that the container has `traefik.enable=true`. |
-| Container missing from the dashboard/logs | Not on `traefik-net`, or `traefik.enable` missing | Add the network and label, then `docker compose up -d` on that service. |
+| Container missing from the Traefik logs | Not on `traefik-net`, or `traefik.enable` missing | Add the network and label, then `docker compose up -d` on that service. |
 | `502 Bad Gateway` | Wrong backend port or app not started | Set `traefik.http.services.<name>.loadbalancer.server.port` to the container's internal port; check `docker logs <container>`. |
 | `network traefik-net declared as external, but could not be found` | Network not created | `docker network create traefik-net` |
 | Client IP shows the tunnel's IP | `trustedIPs` doesn't match the tunnel's source address | See [cloudflare-tunnel.md](cloudflare-tunnel.md). |
+| Hostname doesn't resolve (internal-only service) | Missing `hosts` entry on the client | Add the hostname to the client's `hosts` file (see [adding-a-service.md](adding-a-service.md)). |
+| Container can't reach a host port (timeout) | Host firewall blocks the container's Docker subnet | Add a firewall rule allowing that subnet to the port. |
 | Two services collide | Same router name in two compose files | Use a unique router name per service. |
 
 Useful commands:
